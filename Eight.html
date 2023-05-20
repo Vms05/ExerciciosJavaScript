@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="game-style.css" />
+
+    <title>RedDot</title>
+  </head>
+  <body>
+    <h2><a href="./index.html">Home</a></h2>
+    <h1>Chegue até o ponto vermelho:</h1>
+
+    <div id="scene">
+      <span id="player"></span>
+      <span id="goal"></span>
+      <div id="floor"></div>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("load", function () {
+      const player = document.getElementById("player");
+      let positionX = 20;
+      const step = 20;
+
+      function movePlayer(direction) {
+        if (direction === "left") {
+          if (positionX > 0) {
+            positionX -= step;
+          }
+        } else if (direction === "right") {
+          const windowWidth = window.innerWidth;
+
+          let playerWidth = player.offsetWidth;
+          const maxPosition = windowWidth - playerWidth - 98;
+
+          positionX += step;
+          console.log(positionX);
+          if (positionX > maxPosition) {
+            positionX = maxPosition;
+
+            alert("Você venceu");
+            location.reload();
+          }
+        }
+
+        player.style.left = positionX + "px";
+      }
+
+      window.addEventListener("keydown", function (event) {
+        var keyPressed = event.key;
+
+        if (keyPressed === "ArrowLeft") {
+          player.classList.remove("right");
+          player.classList.add("left");
+          movePlayer("left");
+        } else if (keyPressed === "ArrowRight") {
+          player.classList.remove("left");
+          player.classList.add("right");
+          movePlayer("right");
+        }
+      });
+    });
+  </script>
+</html>

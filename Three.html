@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><a href="./index.html">Home</a></h2>
+    <div id="productsContainer"></div>
+    <h2 id="sum"></h2>
+  </body>
+
+  <script>
+    const products = [
+      { name: "Manual", value: 100.9, qntd: 3 },
+      { name: "Biotônico Fontora", value: 120, qntd: 2 },
+      { name: "Weed", value: 5.5, qntd: 1 },
+    ];
+
+    const numbers = [];
+
+    products.map((product) => {
+      const totalValue = product.value * product.qntd;
+      const formatedTotal = totalValue.toFixed(2);
+
+      numbers.push(totalValue);
+
+      productsContainer.innerHTML += `<h2>${product.name}: R$${formatedTotal}`;
+    });
+
+    const totalSum = numbers.reduce((acc, current) => acc + current);
+    sum.textContent = `Total: R$${totalSum.toFixed(2)}`;
+  </script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><a href="./index.html">Home</a></h2>
+    <form id="imcForm" onsubmit="onSubmit(event)">
+      <label for="height">Altura (cm):</label>
+      <input name="height" type="number" required />
+
+      <select name="gender" id="gender">
+        <option value="male">Masculino</option>
+        <option value="female">Feminino</option>
+      </select>
+
+      <button type="submit">Calc</button>
+    </form>
+
+    <h2 id="IMC"></h2>
+  </body>
+
+  <script>
+    const onSubmit = (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(imcForm);
+
+      const height = formData.get("height").valueOf();
+      const heightInMeters = height / 100;
+
+      const gender = formData.get("gender");
+
+      let imc = 0;
+
+      if (gender === "male") {
+        imc = 72.7 * heightInMeters - 58;
+      } else if (gender === "female") {
+        imc = 62.1 * heightInMeters - 44.7;
+      }
+
+      IMC.textContent = `Peso ideal: ${imc.toFixed(2)}`;
+    };
+  </script>
+</html>
+
+<!-- Para homens: (72.7*h) - 58
+
+Para mulheres: (62.1*h) - 44.7 -->

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><a href="./index.html">Home</a></h2>
+    <button onclick="higherNumber()">Maior numero:</button>
+    <button onclick="smallestNumber()">Menor numero:</button>
+    <button onclick="allNumbers()">Todos os numeros:</button>
+
+    <div id="list-numbers"></div>
+  </body>
+  <script>
+    const listNumbers = document.getElementById("list-numbers");
+
+    const numbers = [];
+
+    let number = parseInt(prompt("Digite um Numero:"));
+
+    while (number) {
+      numbers.push(number);
+      number = parseInt(prompt("Digite um Numero:"));
+    }
+
+    function higherNumber() {
+      let num = -Infinity;
+
+      numbers.forEach((numItem) => {
+        if (numItem > num) {
+          num = numItem;
+        }
+      });
+
+      listNumbers.innerHTML = `<h2>${num.toString()}</h2>`;
+    }
+
+    function smallestNumber() {
+      let num = Infinity;
+
+      numbers.forEach((numItem) => {
+        if (numItem < num) {
+          num = numItem;
+        }
+      });
+
+      listNumbers.innerHTML = `<h2>${num.toString()}</h2>`;
+    }
+
+    function allNumbers() {
+      listNumbers.textContent = "";
+      numbers.forEach((numItem) => {
+        listNumbers.innerHTML += `<h2>${numItem.toString()}</h2>`;
+      });
+    }
+  </script>
+</html>

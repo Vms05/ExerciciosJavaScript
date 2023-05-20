@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><a href="./index.html">Home</a></h2>
+    <form onsubmit="onSubmit(event)">
+      <label for="kilometers">Quilometragem percorrida: </label>
+      <input name="kilometers" id="kilometers" type="number" />
+
+      <label for="gasPrice">Preço da gasolina: </label>
+      <input name="gasPrice" id="gasPrice" type="number" />
+
+      <button type="submit">Calcular</button>
+    </form>
+    <div>
+      <h2 id="total"></h2>
+    </div>
+  </body>
+
+  <script>
+    function onSubmit(e) {
+      e.preventDefault();
+
+      const price = (kilometers.value / 8) * gasPrice.value;
+      total.textContent = `Valor Gasto: R$${price.toFixed(2)}`;
+    }
+  </script>
+</html>

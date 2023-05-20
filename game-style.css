@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+
+  background-color: #1b1e20;
+  overflow: hidden;
+}
+
+h1 {
+  color: aliceblue;
+  font-weight: bold;
+
+  padding: 2rem;
+}
+
+#scene {
+  width: 100%;
+  height: 30rem;
+
+  background-color: aqua;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  position: relative;
+}
+
+#floor {
+  width: 100%;
+  height: 6rem;
+
+  background-color: green;
+}
+
+#player {
+  width: 3rem;
+  height: 3rem;
+  background-color: black;
+  border-radius: 10px;
+
+  position: absolute;
+  bottom: 6rem;
+}
+
+.right {
+  animation: rotateRight 0.2s infinite;
+}
+
+.left {
+  animation: rotateLeft 0.2s infinite;
+}
+
+#goal {
+  width: 3rem;
+  height: 3rem;
+  background-color: red;
+  right: 60px;
+  border-radius: 9999px;
+
+  position: absolute;
+  bottom: 6rem;
+}
+
+@keyframes rotateLeft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-90deg);
+  }
+}
+@keyframes rotateRight {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}

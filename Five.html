@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><a href="./index.html">Home</a></h2>
+    <form onsubmit="onSubmit(event)">
+      <label for="length" autofocus>Comprimento</label>
+      <input type="number" id="length" />
+      <label for="width">Largura</label>
+      <input type="number" id="width" />
+      <button type="submit">Calcular</button>
+    </form>
+    <h2 id="price"></h2>
+  </body>
+
+  <script>
+    function onSubmit(e) {
+      e.preventDefault();
+
+      const length = document.getElementById("length");
+      const width = document.getElementById("width");
+
+      const squareMeters = length.value * width.value;
+      const totalPrice = squareMeters * 36;
+
+      price.textContent = `O preço para um comodo de ${squareMeters}m² é: R$${totalPrice.toFixed(
+        2
+      )}`;
+    }
+  </script>
+</html>
